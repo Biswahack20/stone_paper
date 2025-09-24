@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      background: radial-gradient(circle at center, #afb273, #cdc534, #364107);
+      color: #fff;
+      margin: 0;
+      padding: 30px;
+    }
+    h1 {
+      color: aliceblue;
+    }
+    p {
+      font-size: 18px;
+    }
+    .choices {
+      margin-top: 20px;
+    }
+    button {
+      border: none;
+      background: #434222;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 50%;
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 6px #4a3819;
+    }
+    button:hover {
+      transform: scale(1.1);
+      background: whitesmoke;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 20px;
+      color: #1a050f;
+    }
+    #reset {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #868327;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px #4a3819;
+    }
+    #message {
+      font-size: 20px;
+      margin-top: 15px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1> Rock • Paper • Scissors </h1>
+  <p>Pick one to play!</p>
+
+  <div class="choices">
+    <button>✊</button>
+    <button>✋</button>
+    <button>✌️</button>
+  </div>
+
+    <div id="result">
+        <span id="player">0</span>
+        <span>vs</span>
+        <span id="computer">0</span>
+    </div>
+    <p id="message"></p>
+    <button id="reset">RESET</button>
+    <script>
+        
+    </script>
+</body>
+</html>
