@@ -37,14 +37,14 @@
       transform: scale(1.1);
       background: whitesmoke;
     }
-    #result {
+    .result {
       margin-top: 20px;
       font-size: 30px;
       font-weight: bold;
       margin-left: 20px;
       color: #1a050f;
     }
-    #reset {
+    .reset {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
@@ -54,10 +54,11 @@
       cursor: pointer;
       box-shadow: 0 4px 6px #4a3819;
     }
-    #message {
+    .message {
       font-size: 20px;
       margin-top: 15px;
       height: 24px;
+      color: red;
     }
   </style>
 </head>
@@ -66,20 +67,57 @@
   <p>Pick one to play!</p>
 
   <div class="choices">
-    <button>✊</button>
-    <button>✋</button>
-    <button>✌️</button>
+    <button class="choose" id="rock">✊</button>
+    <button class="choose" id="paper">✋</button>
+    <button class="choose" id="scissors">✌️</button>
   </div>
 
     <div id="result">
-        <span id="player">0</span>
+        <span class="player">0</span>
         <span>vs</span>
-        <span id="computer">0</span>
+        <span class="computer">0</span>
     </div>
-    <p id="message"></p>
-    <button id="reset">RESET</button>
+    <p class="message"></p>
+    <button class="reset">RESET</button>
     <script>
-        
-    </script>
-</body>
-</html>
+        let choices= document.querySelectorAll(".choose");
+        let player= document.querySelectorAll(".player");
+        let computer= document.querySelector(".computer");
+        let message= document.querySelector(".message");
+        let reset= document.querySelector(".reset");
+        let playerScore=0;
+        let computerScore=0;
+        let arr=["rock","paper","scissors"];
+        choices.forEach(choice => choice.addEventListener("click", function(){
+           let choiceid=choice.getAttribute("id");
+       let computerPlay= function computerPlay(){
+            let random= Math.floor(Math.random()*3);
+            return arr[random];
+        }
+        if(choiceid === computerPlay()){
+            message.textContent="It's a tie!";
+        } else if(
+            (choiceid==="rock" && computerPlay()==="scissors") ||
+            (choiceid==="paper" && computerPlay()==="rock") ||
+            (choiceid==="scissors" && computerPlay()==="paper")
+        ){
+            playerScore++;
+            player[0].textContent=playerScore;
+            message.textContent="You win this round!";
+        } else {
+            computerScore++;
+            computer.textContent=computerScore;
+            message.textContent="Computer wins this round!";
+        }
+      }  ));
+        reset.addEventListener("click", function(){
+            playerScore=0;
+            computerScore=0;
+            player[0].textContent=playerScore;
+            computer.textContent=computerScore;
+            message.textContent="";
+        });
+        </script>
+        </body>
+        </html>
+  
